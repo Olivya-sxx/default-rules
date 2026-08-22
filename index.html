@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>默认动作</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header>
+        <p class="eyebrow">给犹豫留一条小路</p>
+        <h1>默认动作</h1>
+        <p class="intro">不靠意志力。先选你现在的状态，再做一件足够小的事。</p>
+      </header>
+
+      <nav aria-label="页面导航">
+        <button class="tab is-active" data-view="now">现在</button>
+        <button class="tab" data-view="rules">我的规则</button>
+        <button class="tab" data-view="review">回看</button>
+      </nav>
+
+      <section class="view is-active" id="now">
+        <div class="prompt-card">
+          <p class="section-label">此刻更像哪一种？</p>
+          <div class="scene-list" id="scene-list"></div>
+        </div>
+        <article class="action-card" id="action-card" aria-live="polite"></article>
+        <p class="quiet-note">完成得很少也算完成。你在测试规则，不是在考核自己。</p>
+      </section>
+
+      <section class="view" id="rules">
+        <div class="section-head">
+          <div>
+            <p class="section-label">规则库</p>
+            <h2>为常见时刻预先做决定</h2>
+          </div>
+          <button class="text-button" id="add-rule">新规则</button>
+        </div>
+        <div class="rule-list" id="rule-list"></div>
+      </section>
+
+      <section class="view" id="review">
+        <div class="review-top">
+          <p class="section-label">最近 14 天</p>
+          <h2>规则是在帮你，还是该变小？</h2>
+        </div>
+        <div class="stats" id="stats"></div>
+        <div class="insight" id="insight"></div>
+        <div class="log-head">
+          <h3>最近记录</h3>
+          <button class="text-button danger" id="clear-log">清空记录</button>
+        </div>
+        <div class="log-list" id="log-list"></div>
+      </section>
+    </main>
+
+    <dialog id="failure-dialog">
+      <form method="dialog" class="dialog-card" id="failure-form">
+        <button class="close" value="cancel" aria-label="关闭">×</button>
+        <p class="section-label">这次卡在哪里？</p>
+        <h2>记录一下，让规则变得更贴近你。</h2>
+        <div class="reason-grid" id="reason-grid"></div>
+        <label class="field-label">补充（可不写）<textarea id="failure-note" placeholder="比如：等车时太无聊，忘了自己想做什么"></textarea></label>
+        <button class="primary" id="save-failure" value="default">保存这次记录</button>
+      </form>
+    </dialog>
+
+    <dialog id="rule-dialog">
+      <form method="dialog" class="dialog-card" id="rule-form">
+        <button class="close" value="cancel" aria-label="关闭">×</button>
+        <p class="section-label" id="rule-dialog-label">新规则</p>
+        <h2>把它缩小到愿意开始。</h2>
+        <input type="hidden" id="rule-id" />
+        <label class="field-label">当我……<input id="rule-scene" required placeholder="例如：想刷手机" /></label>
+        <label class="field-label">我先做……<input id="rule-action" required placeholder="例如：拿起正在看的书" /></label>
+        <label class="field-label">最低标准<input id="rule-minimum" required placeholder="例如：读 2 页" /></label>
+        <div class="dialog-actions"><button class="secondary" id="delete-rule" type="button">删除</button><button class="primary" id="save-rule" value="default">保存规则</button></div>
+      </form>
+    </dialog>
+
+    <template id="empty-log"><p class="empty">还没有记录。下一次卡住或做到时，从「现在」开始。</p></template>
+    <script src="./app.js"></script>
+  </body>
+</html>
