@@ -1,0 +1,23 @@
+{
+  "name": "默认规则系统",
+  "short_name": "默认规则",
+  "description": "给犹豫留一条小路。",
+  "lang": "zh-CN",
+  "start_url": "/default-rules/",
+  "scope": "/default-rules/",
+  "display": "standalone",
+  "background_color": "#f7f6f1",
+  "theme_color": "#315b49",
+  "icons": [
+    {
+      "src": "/default-rules/assets/default-rules-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/default-rules/assets/default-rules-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
